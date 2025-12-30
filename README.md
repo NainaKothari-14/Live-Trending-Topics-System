@@ -32,14 +32,9 @@ A **real-time system** to track trending topics using **Node.js**, **Socket.IO**
 
 ## Screenshots
 > Add your screenshots in a `screenshots/` folder inside your repo.
-![Dashboard(Dark Themed](<img width="1014" height="834" alt="Screenshot 2025-12-29 123841" src="https://github.com/user-attachments/assets/233dd5e1-ad7d-40c4-87d7-9cf2ba394b20" />
-)
-![Dashboard(Light Themed](<img width="1017" height="849" alt="Screenshot 2025-12-29 123906" src="https://github.com/user-attachments/assets/292ef5b0-8572-4de0-b48d-1b14561f05e1" />
-)
-![Trending Topics Page](<img width="1290" height="542" alt="Screenshot 2025-12-29 124216" src="https://github.com/user-attachments/assets/9f7f614b-39df-4087-a205-bf7bc0be2153" />
-)  
-![Real-time Updates](<img width="695" height="444" alt="Screenshot 2025-12-29 124102" src="https://github.com/user-attachments/assets/04b1c269-767d-476f-b09b-7505f73d874a" />
-)  
+
+![Trending Topics Page](screenshots/trending.png)  
+![Real-time Updates](screenshots/live_updates.png)  
 
 ---
 
