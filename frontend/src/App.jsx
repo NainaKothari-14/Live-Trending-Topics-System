@@ -3,7 +3,7 @@ import { io } from "socket.io-client";
 import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer } from "recharts";
 import { TrendingUp, ThumbsUp, Eye, Flame, Sun, Moon } from "lucide-react";
 
-const socket = io("http://localhost:5000");
+const socket = io("https://live-trending-topics-system.onrender.com");
 
 const TOPICS = ["#Tech", "#Sports", "#Music", "#Movies"];// Predefined topics
 
@@ -107,23 +107,23 @@ export default function App() {
     text: isDark ? "text-slate-100" : "text-stone-800",
     textMuted: isDark ? "text-slate-400" : "text-stone-500",
     textSubtle: isDark ? "text-slate-500" : "text-stone-400",
-    button: isDark 
-      ? "bg-slate-700 hover:bg-slate-600 border-slate-600 text-slate-200" 
+    button: isDark
+      ? "bg-slate-700 hover:bg-slate-600 border-slate-600 text-slate-200"
       : "bg-stone-50 hover:bg-stone-100 border-stone-200 text-stone-700",
-    buttonCount: isDark 
-      ? "bg-slate-800 border-slate-600 text-slate-400" 
+    buttonCount: isDark
+      ? "bg-slate-800 border-slate-600 text-slate-400"
       : "bg-white border-stone-200 text-stone-500",
     badge: isDark ? "bg-slate-700 text-slate-300" : "bg-stone-100 text-stone-600",
-    trendingBadge: isDark 
-      ? "bg-amber-900/30 border-amber-700/50 text-amber-400" 
+    trendingBadge: isDark
+      ? "bg-amber-900/30 border-amber-700/50 text-amber-400"
       : "bg-amber-50 border-amber-200 text-amber-800",
     hotBadge: isDark ? "bg-amber-900/40 text-amber-400" : "bg-amber-50 text-amber-700",
     progressBg: isDark ? "bg-slate-700" : "bg-stone-100",
     footer: isDark ? "border-slate-800" : "border-stone-200",
     grid: isDark ? "#334155" : "#e7e5e4",
     axis: isDark ? "#94a3b8" : "#a8a29e",
-    tooltip: isDark 
-      ? { bg: "#1e293b", border: "#334155" } 
+    tooltip: isDark
+      ? { bg: "#1e293b", border: "#334155" }
       : { bg: "#fff", border: "#e7e5e4" },
   };
 
@@ -158,11 +158,10 @@ export default function App() {
               {/* Theme Toggle */}
               <button
                 onClick={toggleTheme}
-                className={`p-2.5 rounded-lg border transition-all duration-200 ${
-                  isDark 
-                    ? "bg-slate-700 border-slate-600 hover:bg-slate-600 text-amber-400" 
+                className={`p-2.5 rounded-lg border transition-all duration-200 ${isDark
+                    ? "bg-slate-700 border-slate-600 hover:bg-slate-600 text-amber-400"
                     : "bg-stone-100 border-stone-200 hover:bg-stone-200 text-stone-600"
-                }`}
+                  }`}
                 aria-label={`Switch to ${isDark ? "light" : "dark"} mode`}
               >
                 {isDark ? <Sun className="w-5 h-5" /> : <Moon className="w-5 h-5" />}
@@ -211,8 +210,8 @@ export default function App() {
                   }}
                 />
                 <Legend
-                  wrapperStyle={{ 
-                    fontSize: "13px", 
+                  wrapperStyle={{
+                    fontSize: "13px",
                     paddingTop: "20px",
                     color: isDark ? "#e2e8f0" : "#1c1917"
                   }}
@@ -246,9 +245,8 @@ export default function App() {
               return (
                 <div
                   key={topic}
-                  className={`rounded-xl border p-6 transition-all duration-200 ${themeClasses.card} ${
-                    isTrending ? themeClasses.cardTrending : themeClasses.cardHover
-                  }`}
+                  className={`rounded-xl border p-6 transition-all duration-200 ${themeClasses.card} ${isTrending ? themeClasses.cardTrending : themeClasses.cardHover
+                    }`}
                 >
                   {/* Card Header */}
                   <div className="flex items-start justify-between mb-5">
