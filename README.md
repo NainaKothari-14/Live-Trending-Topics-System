@@ -1,44 +1,167 @@
-# Live Trending Topics System
+# Live Trending Topics
 
-A **real-time system** to track trending topics using **Node.js**, **Socket.IO**, **Redis**, and **Elasticsearch**.
+> A real-time trending topics system inspired by Twitter/Instagram trends
+
+[![Node.js](https://img.shields.io/badge/Node.js-18+-339933?style=flat&logo=node.js&logoColor=white)](https://nodejs.org/)
+[![Socket.IO](https://img.shields.io/badge/Socket.IO-Realtime-010101?style=flat&logo=socket.io&logoColor=white)](https://socket.io/)
+[![Redis](https://img.shields.io/badge/Redis-InMemory-DC382D?style=flat&logo=redis&logoColor=white)](https://redis.io/)
+[![Kafka](https://img.shields.io/badge/Kafka-Event%20Streaming-231F20?style=flat&logo=apachekafka&logoColor=white)](https://kafka.apache.org/)
 
 ---
 
-## Table of Contents
-- [Features](#features)
-- [Tech Stack](#tech-stack)
-- [Screenshots](#screenshots)
-- [Installation](#installation)
-- [Usage](#usage)
-- [License](#license)
+## Overview
+
+A simple real-time trending topics system where users can like and view predefined topics. All engagement updates happen instantly across connected clients using Socket.IO, while events are logged through Kafka for analytics.
 
 ---
 
 ## Features
-- Real-time trending topics updates  
-- Fast analytics and search using Elasticsearch  
-- Temporary storage with Redis for quick updates  
-- Persistent storage using MongoDB  
+
+- Predefined trending topics: `#Tech`, `#Sports`, `#Music`, `#Movies`
+- Real-time like and view counters
+- Instant updates across all connected clients
+- Trending calculation based on highest likes
+- Event logging with Kafka
+- Storage in MongoDB and Elasticsearch for analytics
+- Live engagement chart
+- Light/Dark theme toggle
 
 ---
 
 ## Tech Stack
-- **Backend:** Node.js, Express  
-- **Real-time:** Socket.IO  
-- **Database:** MongoDB, Redis  
-- **Search & Analytics:** Elasticsearch  
+
+**Frontend:** React, Vite, Socket.IO Client, Tailwind CSS, Recharts
+
+**Backend:** Node.js, Express, Socket.IO, Redis, Kafka
+
+**Data:** MongoDB, Elasticsearch
+
+**Infrastructure:** Docker Compose
+
+---
+
+## How It Works
+
+```
+User clicks Like/View
+       ↓
+Socket.IO emits event
+       ↓
+Backend updates Redis counter
+       ↓
+Broadcasts to all clients
+       ↓
+Sends event to Kafka
+       ↓
+Consumer stores in MongoDB + Elasticsearch
+```
+
+---
+
+## Project Structure
+
+```
+live-trending-topics/
+│
+├── backend/
+│   ├── server.js              # Main server: Socket.IO + Express
+│   ├── redis.js               # Redis client configuration
+│   ├── kafka.js               # Kafka producer setup
+│   └── consumer.js            # Kafka consumer (MongoDB + Elasticsearch)
+│
+├── frontend/
+│   ├── src/
+│   │   ├── App.jsx            # Main application component
+│   │   ├── components/        # Reusable UI components
+│   │   └── main.jsx           # Application entry point
+│   ├── vite.config.js
+│   └── package.json
+│
+├── docker-compose.yml         # Service orchestration
+├── .env.example               # Environment variables template
+├── screenshots/               # Documentation images
+└── README.md
+```
 
 ---
 
 ## Screenshots
-> Add your screenshots in a `screenshots/` folder inside your repo.
 
-![Trending Topics Page](screenshots/trending.png)  
-![Real-time Updates](screenshots/live_updates.png)  
+### Main Dashboard
+<img src="screenshots/dashboard.png" width="700" alt="Live trending topics dashboard"/>
+
+### Real-time Trending Updates
+<img src="screenshots/trending.png" width="700" alt="Trending topic calculations"/>
+
+### Engagement Analytics Chart
+<img src="screenshots/chart.png" width="700" alt="Live engagement visualization"/>
+
+### Theme Customization
+<img src="screenshots/theme.png" width="700" alt="Light and dark theme options"/>
 
 ---
 
-## Installation
-1. Clone the repository:
-   ```bash
-   git clone https://github.com/yourusername/Live-Trending-Topics-System.git
+## Quick Start
+
+### Prerequisites
+- Node.js 18+
+- Docker & Docker Compose
+
+### Setup
+
+1. **Start services**
+```bash
+docker-compose up -d
+```
+
+2. **Run backend**
+```bash
+cd backend
+npm install
+npm start
+```
+Backend: `http://localhost:5000`
+
+3. **Run frontend**
+```bash
+cd frontend
+npm install
+npm run dev
+```
+Frontend: `http://localhost:5173`
+
+---
+
+## Redis Keys
+
+```
+topic:#Tech:likes
+topic:#Tech:views
+topic:#Sports:likes
+topic:#Sports:views
+```
+
+---
+
+## Kafka Events
+
+Each user action generates an event:
+
+```json
+{
+  "topic": "#Tech",
+  "event": "TOPIC_LIKED",
+  "timestamp": "2025-01-22T14:32:45.809Z"
+}
+```
+
+---
+
+## Author
+
+**Naina Kothari**  
+GitHub: [@NainaKothari-14](https://github.com/NainaKothari-14)
+
+---
+
+*Built to learn real-time systems, event streaming, and scalable backend design*
