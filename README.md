@@ -58,46 +58,19 @@ Consumer stores in MongoDB + Elasticsearch
 
 ---
 
-## Project Structure
-
-```
-live-trending-topics/
-│
-├── backend/
-│   ├── server.js              # Main server: Socket.IO + Express
-│   ├── redis.js               # Redis client configuration
-│   ├── kafka.js               # Kafka producer setup
-│   └── consumer.js            # Kafka consumer (MongoDB + Elasticsearch)
-│
-├── frontend/
-│   ├── src/
-│   │   ├── App.jsx            # Main application component
-│   │   ├── components/        # Reusable UI components
-│   │   └── main.jsx           # Application entry point
-│   ├── vite.config.js
-│   └── package.json
-│
-├── docker-compose.yml         # Service orchestration
-├── .env.example               # Environment variables template
-├── screenshots/               # Documentation images
-└── README.md
-```
-
----
-
 ## Screenshots
 
 ### Main Dashboard
-<img src="screenshots/dashboard.png" width="700" alt="Live trending topics dashboard"/>
+<img src="screenshots/Dashboard(Dark).png" width="700" alt="Live trending topics dashboard"/>
 
 ### Real-time Trending Updates
-<img src="screenshots/trending.png" width="700" alt="Trending topic calculations"/>
+<img src="screenshots/Trending.png" width="700" alt="Trending topic calculations"/>
 
 ### Engagement Analytics Chart
-<img src="screenshots/chart.png" width="700" alt="Live engagement visualization"/>
+<img src="screenshots/real%20tim%20graph.png" width="700" alt="Live engagement visualization"/>
 
 ### Theme Customization
-<img src="screenshots/theme.png" width="700" alt="Light and dark theme options"/>
+<img src="screenshots/Dashboard(Light).png" width="700" alt="Light and dark theme options"/>
 
 ---
 
