@@ -67,7 +67,7 @@ Consumer stores in MongoDB + Elasticsearch
 <img src="screenshots/Trending.png" width="700" alt="Trending topic calculations"/>
 
 ### Engagement Analytics Chart
-<img src="screenshots/real%20tim%20graph.png" width="700" alt="Live engagement visualization"/>
+<img src="screenshots/real%20time%20graph.png" width="700" alt="Live engagement visualization"/>
 
 ### Theme Customization
 <img src="screenshots/Dashboard(Light).png" width="700" alt="Light and dark theme options"/>
